@@ -77,3 +77,18 @@ a{
 	text-align: center;
 	padding-top: 20px;
 }
+
+#wrapper #form .error {
+	margin-bottom: 15px;
+	display: flex;
+	text-align: center;
+}
+
+#wrapper #form .error .errors {
+	color: #af4242;
+	background-color: #fde8ec;
+	padding: 10px;
+	border-radius: 3px;
+	font-size: 14px;
+	display: inline-block;
+}
