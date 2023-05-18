@@ -11,6 +11,15 @@
 		return $ret;
 	}
 
+	function get_value($valueArg){
+		if (isset($_SESSION['ok'][$valueArg]) AND !empty($_SESSION['ok'][$valueArg])) {
+			$ret = $_SESSION['ok'][$valueArg];
+		} else {
+			$ret = null;
+		}
+		return $ret;
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,25 +38,31 @@
 			<form action="action/action.php" method="post">
 				<div class="input_field">
 					<label for="email">Email:</label>
-					<input type="email" name="email">
+					<input type="email" name="email" value="<?=get_value("email")?>">
 				</div>
-				<div class="error">
-					<p class="errors"><?=get_error('email')?></p>
-				</div>
+				<?php if (get_error('email')): ?>
+					<div class="error">
+						<p class="errors"><?=get_error('email')?></p>
+					</div>
+				<?php endif; ?>
 				<div class="input_field">
 					<label for="password">Password:</label>
 					<input type="text" name="password">
 				</div>
-				<div class="error">
-					<p class="errors"><?=get_error('password')?></p>
-				</div>
+				<?php if (get_error('password')): ?>
+					<div class="error">
+						<p class="errors"><?=get_error('password')?></p>
+					</div>
+				<?php endif; ?>
 				<div class="input_field">
 					<label for="repeatPassword">Repeat Password:</label>
 					<input type="text" name="repeatPassword">
 				</div>
-				<div class="error">
-					<p class="errors"><?=get_error('repeatPassword')?></p>
-				</div>
+				<?php if (get_error('repeatPassword')): ?>
+					<div class="error">
+						<p class="errors"><?=get_error('repeatPassword')?></p>
+					</div>
+				<?php endif; ?>
 				<div class="input_field">
 					<input type="submit" class="sbt" value="Sign Up">
 				</div>
@@ -59,3 +74,7 @@
 	</div>
 </body>
 </html>
+<?php
+	unset($_SESSION['errors']);
+	unset($_SESSION['ok']);
+?>
