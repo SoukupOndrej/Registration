@@ -32,11 +32,21 @@ a{
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0,125);
 	border-radius: 5px;
 }
+
+#wrapper .success {
+  background-color: #c9fdd8;
+  color: #4caf50;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
 #wrapper #form .input_field {
 	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
 }
+
 #wrapper #form .input_field label {
 	width: 200px;
 	color: #757575;
@@ -79,16 +89,14 @@ a{
 }
 
 #wrapper #form .error {
+	width: 100%;
 	margin-bottom: 15px;
 	display: flex;
-	text-align: center;
-}
-
-#wrapper #form .error .errors {
+	text-align: left;
 	color: #af4242;
 	background-color: #fde8ec;
 	padding: 10px;
-	border-radius: 3px;
+	border-radius: 5px;
 	font-size: 14px;
 	display: inline-block;
 }

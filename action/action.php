@@ -55,12 +55,16 @@
 			];
 
 			$sql_com = $db->prepare($sql);
-			$sql_com->execute($dataIns);
-			$inf = $db->LastInsertId();
+			$status = $sql_com->execute($dataIns);
 
-			var_dump($inf);
+			if ($status) {
+				$_SESSION['success'] = "Successfuly registered!";
+				header("location: ../index.php");
+			}
 		} else {
 			$errors['email'] = "This email is already registered";
+			$_SESSION['errors'] = $errors;
+			header("location: ../signup.php");
 		}
 	}
 

@@ -42,7 +42,7 @@
 				</div>
 				<?php if (get_error('email')): ?>
 					<div class="error">
-						<p class="errors"><?=get_error('email')?></p>
+						<p><?=get_error('email')?></p>
 					</div>
 				<?php endif; ?>
 				<div class="input_field">
@@ -51,7 +51,7 @@
 				</div>
 				<?php if (get_error('password')): ?>
 					<div class="error">
-						<p class="errors"><?=get_error('password')?></p>
+						<p><?=get_error('password')?></p>
 					</div>
 				<?php endif; ?>
 				<div class="input_field">
@@ -60,8 +60,8 @@
 				</div>
 				<?php if (get_error('repeatPassword')): ?>
 					<div class="error">
-						<p class="errors"><?=get_error('repeatPassword')?></p>
-					</div>
+						<p><?=get_error('repeatPassword')?></p>
+					</div>	
 				<?php endif; ?>
 				<div class="input_field">
 					<input type="submit" class="sbt" value="Sign Up">

@@ -1,3 +1,14 @@
+<?php
+
+	session_start();
+
+	if (isset($_SESSION['success']) AND !empty($_SESSION['success'])) {
+		$success = $_SESSION['success'];
+	} else {
+		$success = null;
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +22,20 @@
 		<div id="header">
 			<h1>Log In</h1>
 		</div>
+		<?php if ($success): ?>
+			<div class="success">
+				<p><?=$success?></p>
+			</div>
+		<?php endif; ?>
 		<div id="form">
-			<form>
+			<form action="action/secAct.php" method="post">
 				<div class="input_field">
 					<label for="email">Email:</label>
 					<input type="email" name="email">
 				</div>
 				<div class="input_field">
 					<label for="password">Password:</label>
-					<input type="text" name="password">
+					<input type="password" name="password">
 				</div>
 				<div class="input_field">
 					<input type="submit" class="sbt" value="Log In">
@@ -32,3 +48,8 @@
 	</div>
 </body>
 </html>
+<?php
+	
+	unset($_SESSION['success']);
+
+?>
