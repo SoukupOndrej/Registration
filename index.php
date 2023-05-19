@@ -37,7 +37,7 @@
 			</div>
 		<?php endif; ?>
 		<div id="form">
-			<form action="action/secAct.php" method="post">
+			<form action="act/loginAct.php" method="post">
 				<div class="input_field">
 					<label for="email">Email:</label>
 					<input type="email" name="email">

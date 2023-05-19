@@ -35,7 +35,7 @@
 			<h1>Sign Up</h1>
 		</div>
 		<div id="form">
-			<form action="action/action.php" method="post">
+			<form action="act/signupAct.php" method="post">
 				<div class="input_field">
 					<label for="email">Email:</label>
 					<input type="email" name="email" value="<?=get_value("email")?>">
