@@ -47,7 +47,7 @@
 				<?php endif; ?>
 				<div class="input_field">
 					<label for="password">Password:</label>
-					<input type="text" name="password">
+					<input type="password" name="password">
 				</div>
 				<?php if (get_error('password')): ?>
 					<div class="error">
@@ -56,7 +56,7 @@
 				<?php endif; ?>
 				<div class="input_field">
 					<label for="repeatPassword">Repeat Password:</label>
-					<input type="text" name="repeatPassword">
+					<input type="password" name="repeatPassword">
 				</div>
 				<?php if (get_error('repeatPassword')): ?>
 					<div class="error">

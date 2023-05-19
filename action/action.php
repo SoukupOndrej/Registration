@@ -1,5 +1,6 @@
 <?php
-
+	
+	include_once "../db.php";
 	session_start();
 	$errors = [];
 
@@ -34,11 +35,33 @@
 		$_SESSION['errors'] = $errors;
 		header("location: ../signup.php");
 	} else {
-		echo "Everything is OK";
-	}
+		$email = $_POST['email'];
 
-	foreach ($errors as $key => $value) {
-		echo $value;
+		$sql = "SELECT COUNT(*) FROM users WHERE email LIKE '%$email%'";
+
+		$sql_com = $db->prepare($sql);
+		$sql_com->execute();
+		$data = $sql_com->fetchColumn();
+
+		if ($data === 0) {
+			$password = $_POST['password'];
+			$hash = hash('sha512', $password . $email);
+
+			$sql = "INSERT INTO users (email, password) VALUES (:emailVal, :passwordVal)";
+
+			$dataIns = [
+				":emailVal" => $email,
+				":passwordVal" => $hash
+			];
+
+			$sql_com = $db->prepare($sql);
+			$sql_com->execute($dataIns);
+			$inf = $db->LastInsertId();
+
+			var_dump($inf);
+		} else {
+			$errors['email'] = "This email is already registered";
+		}
 	}
 
 ?>
