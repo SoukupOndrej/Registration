@@ -2,6 +2,7 @@
 
 	include_once "../db.php";
 	session_start();
+	$errors = [];
 
 	$password = $_POST['password'];
 	$email = $_POST['email'];
@@ -24,10 +25,15 @@
 		if ($data == 1) {
 			echo "success";
 		} else {
-			echo "wrong";
+			$errors['password'] = "Invalid details";
 		}	
 	} else {
-		echo "dany email neni registrovany";
+		$errors['email'] = "This email is not registered";
+	}
+
+	if (count($errors) > 0) {
+		$_SESSION['errors'] = $errors;
+		header("location: ../index.php");
 	}
 
 ?>

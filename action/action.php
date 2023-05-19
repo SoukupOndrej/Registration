@@ -58,7 +58,7 @@
 			$status = $sql_com->execute($dataIns);
 
 			if ($status) {
-				$_SESSION['success'] = "Successfuly registered!";
+				$_SESSION['success'] = "Successfuly registered! Now you can log in below.";
 				header("location: ../index.php");
 			}
 		} else {

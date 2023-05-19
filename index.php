@@ -8,6 +8,15 @@
 		$success = null;
 	}
 
+	function get_error($errorArg){
+		if (isset($_SESSION['errors'][$errorArg]) AND !empty($_SESSION['errors'][$errorArg])) {
+			$ret = $_SESSION['errors'][$errorArg];
+		} else {
+			$ret = null;
+		}
+		return $ret;
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,10 +42,20 @@
 					<label for="email">Email:</label>
 					<input type="email" name="email">
 				</div>
+				<?php if (get_error('email')): ?>
+					<div class="error">
+						<p><?=get_error('email')?></p>
+					</div>
+				<?php endif; ?>
 				<div class="input_field">
 					<label for="password">Password:</label>
 					<input type="password" name="password">
 				</div>
+				<?php if (get_error('password')): ?>
+					<div class="error">
+						<p><?=get_error('password')?></p>
+					</div>
+				<?php endif; ?>
 				<div class="input_field">
 					<input type="submit" class="sbt" value="Log In">
 				</div>
@@ -51,5 +70,6 @@
 <?php
 	
 	unset($_SESSION['success']);
+	unset($_SESSION['errors']);
 
 ?>
