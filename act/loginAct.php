@@ -23,7 +23,9 @@
 		$data = $sql_com->fetchColumn();
 
 		if ($data == 1) {
-			echo "success";
+			$_SESSION['logged'] = true;
+			header("location: ../success.php");
+			exit();
 		} else {
 			$errors['password'] = "Invalid details";
 		}	
@@ -34,6 +36,7 @@
 	if (count($errors) > 0) {
 		$_SESSION['errors'] = $errors;
 		header("location: ../index.php");
+		exit();
 	}
 
 ?>

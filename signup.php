@@ -22,7 +22,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,7 @@
 		<div id="form">
 			<form action="act/signupAct.php" method="post">
 				<div class="input_field">
-					<label for="email">Email:</label>
+					<label id="email">Email:</label>
 					<input type="email" name="email" value="<?=get_value("email")?>">
 				</div>
 				<?php if (get_error('email')): ?>
@@ -46,7 +46,7 @@
 					</div>
 				<?php endif; ?>
 				<div class="input_field">
-					<label for="password">Password:</label>
+					<label id="password">Password:</label>
 					<input type="password" name="password">
 				</div>
 				<?php if (get_error('password')): ?>
@@ -55,7 +55,7 @@
 					</div>
 				<?php endif; ?>
 				<div class="input_field">
-					<label for="repeatPassword">Repeat Password:</label>
+					<label id="repeatPassword">Repeat Password:</label>
 					<input type="password" name="repeatPassword">
 				</div>
 				<?php if (get_error('repeatPassword')): ?>

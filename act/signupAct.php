@@ -60,11 +60,13 @@
 			if ($status) {
 				$_SESSION['success'] = "Successfuly registered! Now you can log in below.";
 				header("location: ../index.php");
+				exit();
 			}
 		} else {
 			$errors['email'] = "This email is already registered";
 			$_SESSION['errors'] = $errors;
 			header("location: ../signup.php");
+			exit();
 		}
 	}
 
